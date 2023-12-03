@@ -16,10 +16,12 @@ Vagrant.configure("2") do |config|
   config.ssh.insert_key = false
   config.ssh.forward_agent = true
   config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.provider "qemu" do |vb|
+  config.vm.provider "qemu" do |qe|
     # Customize the amount of memory on the VM:
-    vb.memory = "2048"
-    vb.linked_clone = true
+    # vb.memory = "2048"
+    # vb.linked_clone = true
+    qe.memory = "2G"
+    qe.qemu_dir = "/tmp/qemu"
   end
 
   # Database server
