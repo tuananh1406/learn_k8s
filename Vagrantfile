@@ -16,7 +16,8 @@ Vagrant.configure("2") do |config|
   config.ssh.insert_key = false
   config.ssh.forward_agent = true
   config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.cloud_init content_type: "text/cloud-config", path: "./cloud-init.yml"
+  # config.vm.cloud_init content_type: "text/cloud-config", path: "./cloud-init.yml"
+  config.vm.provision "shell", path: "cloud-init.sh"
   config.vm.provider "virtualbox" do |vb|
     # Customize the amount of memory on the VM:
     vb.memory = "2048"
