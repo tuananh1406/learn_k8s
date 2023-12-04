@@ -41,11 +41,11 @@ Vagrant.configure("2") do |config|
     app.vm.network "private_network", ip: "192.168.60.6"
 
     # Provisioning configuration for Ansible
-    app.vm.provision "ansible" do |ansible|
-      ansible.playbook = "webserver.yml"
-      ansible.tags = "install"
+    # app.vm.provision "ansible" do |ansible|
+    #   ansible.playbook = "webserver.yml"
+    #   ansible.tags = "install"
       # ansible.tags = "install-backend"
-      ansible.verbose = 6
+      # ansible.verbose = 6
     end
   end
   config.vm.hostname = "app1.test"
