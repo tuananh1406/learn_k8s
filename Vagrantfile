@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "alvistack/ubuntu-23.04"
   config.ssh.insert_key = true
-  config.ssh.forward_agent = true
+  config.ssh.forward_agent = false
   config.vm.synced_folder ".", "/vagrant", disabled: true
   config.vm.provision "file", source: "learn_k8s_key", destination: "~/.ssh/learn_k8s_key"
   config.vm.provision "file", source: "learn_k8s_key.pub", destination: "~/.ssh/learn_k8s_key.pub"
