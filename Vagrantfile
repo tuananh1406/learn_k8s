@@ -25,7 +25,7 @@ Vagrant.configure("2") do |config|
   # Master cluster
   config.vm.define "master1" do |app|
     app.vm.hostname = "master1"
-    app.vm.network "private_network", ip: "192.168.10.1"
+    app.vm.network "private_network", ip: "192.168.56.1"
     # Provisioning configuration for Ansible
     # app.vm.provision "ansible" do |ansible|
     #   ansible.playbook = "webserver.yml"
@@ -36,41 +36,41 @@ Vagrant.configure("2") do |config|
   end
   config.vm.define "master2" do |app|
     app.vm.hostname = "master2"
-    app.vm.network "private_network", ip: "192.168.10.2"
+    app.vm.network "private_network", ip: "192.168.56.2"
   end
   config.vm.define "master3" do |app|
     app.vm.hostname = "master3"
-    app.vm.network "private_network", ip: "192.168.10.3"
+    app.vm.network "private_network", ip: "192.168.56.3"
   end
 
   # Worker cluster
   config.vm.define "worker1" do |app|
     app.vm.hostname = "worker1"
-    app.vm.network "private_network", ip: "192.168.10.4"
+    app.vm.network "private_network", ip: "192.168.56.4"
   end
   config.vm.define "worker2" do |app|
     app.vm.hostname = "worker2"
-    app.vm.network "private_network", ip: "192.168.10.5"
+    app.vm.network "private_network", ip: "192.168.56.5"
   end
   config.vm.define "worker3" do |app|
     app.vm.hostname = "worker3"
-    app.vm.network "private_network", ip: "192.168.10.6"
+    app.vm.network "private_network", ip: "192.168.56.6"
   end
 
   # Gitlab
   config.vm.define "gitlab" do |app|
     app.vm.hostname = "gitlab"
-    app.vm.network "private_network", ip: "192.168.10.7"
+    app.vm.network "private_network", ip: "192.168.56.7"
   end
   # Ranche
   config.vm.define "rancher" do |app|
     app.vm.hostname = "rancher"
-    app.vm.network "private_network", ip: "192.168.10.8"
+    app.vm.network "private_network", ip: "192.168.56.8"
   end
   # Run CICD
   config.vm.define "cicd" do |app|
     app.vm.hostname = "cicd"
-    app.vm.network "private_network", ip: "192.168.10.9"
+    app.vm.network "private_network", ip: "192.168.56.9"
   end
 
   # Disable automatic box update checking. If you disable this, then
