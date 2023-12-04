@@ -8,3 +8,4 @@ echo 192.168.56.17 gitlab >> /etc/hosts
 echo 192.168.56.18 rancher >> /etc/hosts
 echo 192.168.56.19 cicd >> /etc/hosts
 cat /home/vagrant/.ssh/learn_k8s_key.pub >> /home/vagrant/.ssh/authorized_keys
+chmod 400 /home/vagrant/.ssh/learn_k8s_key
