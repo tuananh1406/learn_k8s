@@ -44,9 +44,9 @@ Vagrant.configure("2") do |config|
     # app.vm.provision "ansible" do |ansible|
     #   ansible.playbook = "webserver.yml"
     #   ansible.tags = "install"
-      # ansible.tags = "install-backend"
-      # ansible.verbose = 6
-    end
+    #   # ansible.tags = "install-backend"
+    #   ansible.verbose = 6
+    # end
   end
   config.vm.hostname = "app1.test"
 
