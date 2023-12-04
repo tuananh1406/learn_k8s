@@ -25,7 +25,7 @@ Vagrant.configure("2") do |config|
   # Master cluster
   config.vm.define "master1" do |app|
     app.vm.hostname = "master1"
-    app.vm.network "private_network", ip: "192.168.10.11"
+    app.vm.network "private_network", ip: "192.168.10.1"
     # Provisioning configuration for Ansible
     # app.vm.provision "ansible" do |ansible|
     #   ansible.playbook = "webserver.yml"
@@ -36,41 +36,41 @@ Vagrant.configure("2") do |config|
   end
   config.vm.define "master2" do |app|
     app.vm.hostname = "master2"
-    app.vm.network "private_network", ip: "192.168.10.12"
+    app.vm.network "private_network", ip: "192.168.10.2"
   end
   config.vm.define "master3" do |app|
     app.vm.hostname = "master3"
-    app.vm.network "private_network", ip: "192.168.10.13"
+    app.vm.network "private_network", ip: "192.168.10.3"
   end
 
   # Worker cluster
   config.vm.define "worker1" do |app|
     app.vm.hostname = "worker1"
-    app.vm.network "private_network", ip: "192.168.10.14"
+    app.vm.network "private_network", ip: "192.168.10.4"
   end
   config.vm.define "worker2" do |app|
     app.vm.hostname = "worker2"
-    app.vm.network "private_network", ip: "192.168.10.15"
+    app.vm.network "private_network", ip: "192.168.10.5"
   end
   config.vm.define "worker3" do |app|
     app.vm.hostname = "worker3"
-    app.vm.network "private_network", ip: "192.168.10.16"
+    app.vm.network "private_network", ip: "192.168.10.6"
   end
 
   # Gitlab
   config.vm.define "gitlab" do |app|
     app.vm.hostname = "gitlab"
-    app.vm.network "private_network", ip: "192.168.10.17"
+    app.vm.network "private_network", ip: "192.168.10.7"
   end
   # Ranche
   config.vm.define "rancher" do |app|
     app.vm.hostname = "rancher"
-    app.vm.network "private_network", ip: "192.168.10.18"
+    app.vm.network "private_network", ip: "192.168.10.8"
   end
   # Run CICD
   config.vm.define "cicd" do |app|
     app.vm.hostname = "cicd"
-    app.vm.network "private_network", ip: "192.168.10.19"
+    app.vm.network "private_network", ip: "192.168.10.9"
   end
 
   # Disable automatic box update checking. If you disable this, then
