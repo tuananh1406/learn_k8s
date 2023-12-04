@@ -22,24 +22,10 @@ Vagrant.configure("2") do |config|
     vb.linked_clone = true
   end
 
-  # Database server
-  # config.vm.define "db" do |app|
-  #   app.vm.hostname = "db.test"
-  #   app.vm.network "private_network", ip: "192.168.60.7"
-  #
-  #   # Provisioning configuration for Ansible
-  #   app.vm.provision "ansible" do |ansible|
-  #     ansible.playbook = "webserver.yml"
-  #     ansible.tags = "install-db"
-  #     ansible.verbose = 6
-  #   end
-  # end
-
-  # Backend server
-  config.vm.define "backend" do |app|
-    app.vm.hostname = "api.test"
-    app.vm.network "private_network", ip: "192.168.60.6"
-
+  # Master cluster
+  config.vm.define "master1" do |app|
+    app.vm.hostname = "master1"
+    app.vm.network "private_network", ip: "192.168.10.11"
     # Provisioning configuration for Ansible
     # app.vm.provision "ansible" do |ansible|
     #   ansible.playbook = "webserver.yml"
@@ -48,7 +34,44 @@ Vagrant.configure("2") do |config|
     #   ansible.verbose = 6
     # end
   end
-  config.vm.hostname = "app1.test"
+  config.vm.define "master2" do |app|
+    app.vm.hostname = "master2"
+    app.vm.network "private_network", ip: "192.168.10.12"
+  end
+  config.vm.define "master3" do |app|
+    app.vm.hostname = "master3"
+    app.vm.network "private_network", ip: "192.168.10.13"
+  end
+
+  # Worker cluster
+  config.vm.define "worker1" do |app|
+    app.vm.hostname = "worker1"
+    app.vm.network "private_network", ip: "192.168.10.14"
+  end
+  config.vm.define "worker2" do |app|
+    app.vm.hostname = "worker2"
+    app.vm.network "private_network", ip: "192.168.10.15"
+  end
+  config.vm.define "worker3" do |app|
+    app.vm.hostname = "worker3"
+    app.vm.network "private_network", ip: "192.168.10.16"
+  end
+
+  # Gitlab
+  config.vm.define "gitlab" do |app|
+    app.vm.hostname = "gitlab"
+    app.vm.network "private_network", ip: "192.168.10.17"
+  end
+  # Ranche
+  config.vm.define "rancher" do |app|
+    app.vm.hostname = "rancher"
+    app.vm.network "private_network", ip: "192.168.10.18"
+  end
+  # Run CICD
+  config.vm.define "cicd" do |app|
+    app.vm.hostname = "cicd"
+    app.vm.network "private_network", ip: "192.168.10.19"
+  end
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
