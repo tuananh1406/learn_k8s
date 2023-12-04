@@ -13,10 +13,11 @@ Vagrant.configure("2") do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "alvistack/ubuntu-23.04"
-  config.ssh.insert_key = false
+  config.ssh.insert_key = true
   config.ssh.forward_agent = true
   config.vm.synced_folder ".", "/vagrant", disabled: true
-  # config.vm.cloud_init content_type: "text/cloud-config", path: "./cloud-init.yml"
+  config.vm.provision "file", source: "learn_k8s_key", destination: "~/.ssh/learn_k8s_key"
+  config.vm.provision "file", source: "learn_k8s_key.pub", destination: "~/.ssh/learn_k8s_key.pub"
   config.vm.provision "shell", path: "cloud-init.sh"
   config.vm.provider "virtualbox" do |vb|
     # Customize the amount of memory on the VM:
